@@ -4,25 +4,35 @@
 #
 Name     : perl-Business-ISSN
 Version  : 1.003
-Release  : 2
+Release  : 3
 URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 Summary  : 'Perl extension for International Standard Serial Numbers'
 Group    : Development/Tools
 License  : Artistic-2.0
-Requires: perl-Business-ISSN-man
+Requires: perl-Business-ISSN-license
+BuildRequires : buildreq-cpan
 
 %description
 =pod
 =encoding utf8
 =for HTML <a href="https://travis-ci.org/briandfoy/business-issn"><img src="https://travis-ci.org/briandfoy/business-issn.svg?branch=master" /></a>
 
-%package man
-Summary: man components for the perl-Business-ISSN package.
+%package dev
+Summary: dev components for the perl-Business-ISSN package.
+Group: Development
+Provides: perl-Business-ISSN-devel = %{version}-%{release}
+
+%description dev
+dev components for the perl-Business-ISSN package.
+
+
+%package license
+Summary: license components for the perl-Business-ISSN package.
 Group: Default
 
-%description man
-man components for the perl-Business-ISSN package.
+%description license
+license components for the perl-Business-ISSN package.
 
 
 %prep
@@ -50,6 +60,8 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/perl-Business-ISSN
+cp LICENSE %{buildroot}/usr/share/doc/perl-Business-ISSN/LICENSE
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot}
 else
@@ -64,6 +76,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %defattr(-,root,root,-)
 /usr/lib/perl5/site_perl/5.26.1/Business/ISSN.pm
 
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Business::ISSN.3
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/perl-Business-ISSN/LICENSE
