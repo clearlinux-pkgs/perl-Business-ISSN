@@ -4,13 +4,13 @@
 #
 Name     : perl-Business-ISSN
 Version  : 1.003
-Release  : 4
+Release  : 5
 URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 Summary  : 'Perl extension for International Standard Serial Numbers'
 Group    : Development/Tools
 License  : Artistic-2.0
-Requires: perl-Business-ISSN-license
+Requires: perl-Business-ISSN-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -60,8 +60,8 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-Business-ISSN
-cp LICENSE %{buildroot}/usr/share/doc/perl-Business-ISSN/LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-Business-ISSN
+cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Business-ISSN/LICENSE
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot}
 else
@@ -82,4 +82,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(-,root,root,-)
-/usr/share/doc/perl-Business-ISSN/LICENSE
+/usr/share/package-licenses/perl-Business-ISSN/LICENSE
