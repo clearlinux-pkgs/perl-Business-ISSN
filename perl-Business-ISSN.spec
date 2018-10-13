@@ -4,7 +4,7 @@
 #
 Name     : perl-Business-ISSN
 Version  : 1.003
-Release  : 5
+Release  : 6
 URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 Summary  : 'Perl extension for International Standard Serial Numbers'
@@ -63,9 +63,9 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Business-ISSN
 cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Business-ISSN/LICENSE
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -74,12 +74,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/Business/ISSN.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Business/ISSN.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Business::ISSN.3
 
 %files license
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/package-licenses/perl-Business-ISSN/LICENSE
