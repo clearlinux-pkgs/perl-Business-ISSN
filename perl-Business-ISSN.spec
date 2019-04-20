@@ -4,10 +4,10 @@
 #
 Name     : perl-Business-ISSN
 Version  : 1.003
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
-Summary  : 'Perl extension for International Standard Serial Numbers'
+Summary  : Perl package to work with International Standard Serial Numbers
 Group    : Development/Tools
 License  : Artistic-2.0
 Requires: perl-Business-ISSN-license = %{version}-%{release}
@@ -22,6 +22,7 @@ BuildRequires : buildreq-cpan
 Summary: dev components for the perl-Business-ISSN package.
 Group: Development
 Provides: perl-Business-ISSN-devel = %{version}-%{release}
+Requires: perl-Business-ISSN = %{version}-%{release}
 
 %description dev
 dev components for the perl-Business-ISSN package.
