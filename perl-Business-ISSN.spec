@@ -4,7 +4,7 @@
 #
 Name     : perl-Business-ISSN
 Version  : 1.003
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 Summary  : Perl package to work with International Standard Serial Numbers
