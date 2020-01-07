@@ -4,13 +4,14 @@
 #
 Name     : perl-Business-ISSN
 Version  : 1.003
-Release  : 15
+Release  : 16
 URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
-Summary  : Perl package to work with International Standard Serial Numbers
+Summary  : 'Perl extension for International Standard Serial Numbers'
 Group    : Development/Tools
 License  : Artistic-2.0
 Requires: perl-Business-ISSN-license = %{version}-%{release}
+Requires: perl-Business-ISSN-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -36,14 +37,24 @@ Group: Default
 license components for the perl-Business-ISSN package.
 
 
+%package perl
+Summary: perl components for the perl-Business-ISSN package.
+Group: Default
+Requires: perl-Business-ISSN = %{version}-%{release}
+
+%description perl
+perl components for the perl-Business-ISSN package.
+
+
 %prep
 %setup -q -n Business-ISSN-1.003
+cd %{_builddir}/Business-ISSN-1.003
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -53,7 +64,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -62,7 +73,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Business-ISSN
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Business-ISSN/LICENSE
+cp %{_builddir}/Business-ISSN-1.003/LICENSE %{buildroot}/usr/share/package-licenses/perl-Business-ISSN/e70cdc8a8550ecaf70a1b64f088fbe41ce3ae9d8
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -75,7 +86,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Business/ISSN.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -83,4 +93,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Business-ISSN/LICENSE
+/usr/share/package-licenses/perl-Business-ISSN/e70cdc8a8550ecaf70a1b64f088fbe41ce3ae9d8
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Business/ISSN.pm
