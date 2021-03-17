@@ -4,7 +4,7 @@
 #
 Name     : perl-Business-ISSN
 Version  : 1.004
-Release  : 19
+Release  : 20
 URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.004.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.004.tar.gz
 Summary  : 'Perl extension for International Standard Serial Numbers'
@@ -97,4 +97,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/Business/ISSN.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Business/ISSN.pm
