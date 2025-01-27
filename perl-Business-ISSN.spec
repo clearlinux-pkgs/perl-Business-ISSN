@@ -6,10 +6,10 @@
 # autospec commit: 94c6be0
 #
 Name     : perl-Business-ISSN
-Version  : 1.005
-Release  : 36
-URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.005.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.005.tar.gz
+Version  : 1.008
+Release  : 37
+URL      : https://cpan.metacpan.org/authors/id/B/BR/BRIANDFOY/Business-ISSN-1.008.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/B/BR/BRIANDFOY/Business-ISSN-1.008.tar.gz
 Summary  : 'Perl extension for International Standard Serial Numbers'
 Group    : Development/Tools
 License  : Artistic-2.0
@@ -53,8 +53,8 @@ perl components for the perl-Business-ISSN package.
 
 
 %prep
-%setup -q -n Business-ISSN-1.005
-cd %{_builddir}/Business-ISSN-1.005
+%setup -q -n Business-ISSN-1.008
+cd %{_builddir}/Business-ISSN-1.008
 
 %build
 export http_proxy=http://127.0.0.1:9/
