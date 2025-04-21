@@ -7,7 +7,7 @@
 #
 Name     : perl-Business-ISSN
 Version  : 1.008
-Release  : 37
+Release  : 38
 URL      : https://cpan.metacpan.org/authors/id/B/BR/BRIANDFOY/Business-ISSN-1.008.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BR/BRIANDFOY/Business-ISSN-1.008.tar.gz
 Summary  : 'Perl extension for International Standard Serial Numbers'
